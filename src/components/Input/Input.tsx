@@ -252,24 +252,44 @@ import { b, th, tr } from 'framer-motion/client';
 // повернути масив назв.
 //  Розвязок:
 
-type RequestFunctionProps = {
-  url: string;
-}
-const fetchFastestShips = ({url}: RequestFunctionProps): Promise<[string]>=> {
-  let shipsNamesArray: string[] = [];
-  const fetchShip = fetch(url)
-  
+// type RequestFunctionProps = {
+//   url: string;
+// };
 
-  return shipsNamesArray
-}
+// const fetchFastestShips = async ({
+//   url,
+// }: RequestFunctionProps): Promise<any> => {
+//   let nextPage = true;
+//   let urlNext = url;
+//   let filteredShipsByHyperDrive: any[] = [];
+//   let sortedArrayByName: string[] = [];
 
-const fetchProps: RequestFunctionProps = {url: 'https://swapi.dev/api/starships/'}
-//
-const result = fetchFastestShips(fetchProps).then((res) => {
-  console.log('Fastest ships:', res);
-}
+//   while (nextPage) {
+//   try {
+//     const fetchedShipsData = await fetch(urlNext)
+//       .then(async (res) => res.json())
+//       .then((data) => data);
+//     console.log('Fetched ships data:', fetchedShipsData.results);
+//     fetchedShipsData.results.forEach((ship: any) => {parseFloat(ship.hyperdrive_rating)>1 ? filteredShipsByHyperDrive.push(ship) : null});
+//     nextPage = !!fetchedShipsData.next;
+//     urlNext = fetchedShipsData.next;
+//   } catch (error) {
+//     console.log('Fetch error in catch segment:', error);
+//   }
 
+//   }
 
+//   sortedArrayByName = filteredShipsByHyperDrive.sort((a, b) => a.name.localeCompare(b.name)).map((ship) => ship.name);
+//   console.log('Sorted ship names:', sortedArrayByName);
+
+//   return sortedArrayByName;
+// };
+
+// const fetchProps: RequestFunctionProps = {
+//   url: 'https://swapi.dev/api/starships/?page=1',
+// };
+
+// fetchFastestShips(fetchProps);
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
