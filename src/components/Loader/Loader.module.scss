@@ -1,0 +1,27 @@
+@import "../../app/variables.scss";
+
+.container {
+  background-color: $mainBackground;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  width: $contentWidth;
+  background-color: $mainGradient;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  & img {
+    width: 100px;
+  }
+}

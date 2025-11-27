@@ -8,6 +8,12 @@ import {
   GoogleAuthProvider,
 } from 'firebase/auth';
 
+export const AUTH_USER_ROLE = {
+  AUTHORIZED: 'authorized',
+  GUEST: 'guest',
+  ADMIN: 'admin',
+} as const;
+
 import type { UserCredentialsEmailProps } from './types';
 
 export const auth = getAuth(app);
