@@ -1,6 +1,6 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { Form } from "react-router-dom";
-import { FormProps } from "./types.tsx";
+import type { FormProps } from "./types.tsx";
 import { Input } from "../index.tsx";
 import classes from "./UniversalForm.module.scss";
 

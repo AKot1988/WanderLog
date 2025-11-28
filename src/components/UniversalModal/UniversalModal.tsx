@@ -1,7 +1,8 @@
-import { FC, useEffect } from "react";
+import type { FC } from "react"
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { CloseBtn } from "./CloseBtn";
-import { ModalProps } from "./helper";
+import type { ModalProps } from "./helper";
 import { fadeTransparentInAnimation } from "../Animations/Animations";
 import classes from "./UniversalModal.module.scss";
 

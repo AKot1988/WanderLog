@@ -6,7 +6,6 @@ import { Input } from './components';
 import { googleSignIn } from './firebase/auth';
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>

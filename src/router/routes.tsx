@@ -1,16 +1,10 @@
 import { COMMON_ROUTES, AUTH_USER_ROUTES, ADMIN_ROUTES } from './routesNames';
 import type { FC } from 'react';
 import type { RouteObject } from "react-router-dom"
+import {Input} from '../components'
+import { Home } from '../pages'
 
-// export type RouteObject = {
-//   path: string;
-//   component: FC;
-//   children?: RouteObject[];
-//   action?: Function;
-//   // loader?: LoaderFunction або boolean;
-// };
 
-// -----------------------------------------------
 // DELETE THIS Component
 
 type MockComponentProps = {
@@ -56,10 +50,11 @@ export const authorizedUserRoutes: RouteObject[] = [
   },
 ];
 
+
 export const commonUserRoutes: RouteObject[] = [
   {
     path: COMMON_ROUTES.AUTHORIZATION,
-    element: <MockComponent text={COMMON_ROUTES.AUTHORIZATION} />,
+    Component: Home,
   },
   {
     path: COMMON_ROUTES.ABOUT,

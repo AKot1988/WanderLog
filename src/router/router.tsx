@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   adminUserRoutes,
   authorizedUserRoutes,
@@ -7,6 +7,7 @@ import {
 } from './routes';
 import type { RouteObject } from 'react-router-dom';
 import { AUTH_USER_ROLE } from '../firebase/auth';
+import { Layout } from '../pages'
 
 const checkUserRole = (): string => {
   return AUTH_USER_ROLE.GUEST;
@@ -27,17 +28,17 @@ const createRoutesByRole = (): RouteObject[] => {
   }
 };
 
-const appRouter = () => {
+const MyAppRouter = () => {
   const appRoutes = createRoutesByRole();
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <MockComponent text="Hyi" />,
+      Component: Layout,
       children: appRoutes,
     },
   ]);
 
-  return router;
-};
+  return <RouterProvider router={router} />
+}
 
-export const Router = appRouter();
+export default MyAppRouter

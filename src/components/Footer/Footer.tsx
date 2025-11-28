@@ -1,12 +1,12 @@
 import classes from "./Footer.module.scss";
-import { FC } from "react";
+import type { FC } from "react";
 
 type FooterProps = {
   title: string;
   className?: string | undefined;
 };
 
-const Footer: FC<FooterProps> = ({ title }) => {
+const Footer: FC<FooterProps> = ({ title= 'футер' }) => {
   return (
     <div className={classes.container}>
       <footer className={classes.footer}>
