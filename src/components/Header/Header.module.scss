@@ -1,163 +1,40 @@
-@import "../../app/variables.scss";
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
 
 .container {
   flex-shrink: 0;
-  background-color: $mainBackground;
+  background-color: $general-background-color_marine;
 }
 
 .header {
-  box-sizing: border-box;
-  padding: 0 20px;
+  width: $general-content-width;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  max-width: $contentWidth;
+  height: 70px;
+  padding: 10px;
   margin: 0 auto;
-  height: 100px;
-  background: $mainGradient;
 
-  &Logo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+  h1 {
+    @include font($header-font-family,
+      $headers1-font-size,
+      $bold-font-weight,
+      $basic-text-color );
   }
 
-  &Nav {
+  &__content {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
 
-    &Menu {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
+    &__navContainer{
+      
     }
 
-    &Item {
-      color: $main;
-      transition: all 0.3s;
-    }
+    &__navLink {}
 
-    &Item:hover {
-      color: #2d2d2d;
-      scale: 1.1;
-    }
-
-    &Button {
-      width: 100px;
-      padding: 5px 10px;
-      background-color: $lightGray;
-      border-radius: 5px;
-      color: $main;
-      text-align: center;
-      transition: all 0.3s;
-
-      &:hover {
-        color: $main;
-        background-color: $mainBackground;
-        color: #2d2d2d;
-        scale: 1.05;
-      }
-    }
-
-    &UserLogo {
-      width: 70px;
-      height: 70px;
+    &__avatar {
+      // aspect-ratio: 1:1;
+      height: 20px;
       border-radius: 50%;
-      object-fit: cover;
-    }
-  }
-
-  &Title {
-    font-weight: bold;
-    color: #000000;
-    padding: 0px;
-    margin: 0px;
-    text-align: center;
-  }
-}
-
-.headerLink {
-  text-decoration: none;
-  display: inline-block;
-  padding: 10px 20px;
-  border: 1px solid #000000;
-  background-color: #064cff;
-  color: rgb(56, 7, 204);
-  font-size: 16px;
-  border-radius: 8px;
-  transition: background-color 0.3s, color 0.3s;
-
-  &:hover {
-    background-color: #ff0000;
-    color: rgb(0, 0, 0);
-  }
-}
-
-.avatarLogButtonSection {
-  display: flex;
-  flex-direction: column;
-  // justify-content: space-between;
-  // align-items: center;
-  gap: 10px;
-}
-
-@media screen and (max-width: 768px) {
-  .header {
-    padding: 5px;
-    flex-direction: column;
-    height: auto;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .header {
-    flex-direction: row;
-    height: auto;
-
-    &Logo {
-      width: 70px;
-      height: 70px;
-      align-self: flex-start;
-    }
-
-    &Nav {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-      gap: 5px;
-
-      &Item {
-        color: $main;
-        transition: all 0.3s;
-      }
-
-      &Button {
-        width: 50px;
-        padding: 5px 10px;
-        background-color: $lightGray;
-        border-radius: 5px;
-        color: $main;
-        text-align: center;
-      }
-
-      &Menu {
-        margin-right: 5px;
-        padding-right: 5px;
-        border-right: 2px solid $mainBackground;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: start;
-        gap: 5px;
-      }
     }
   }
 }

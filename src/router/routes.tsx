@@ -1,7 +1,6 @@
 import { COMMON_ROUTES, AUTH_USER_ROUTES, ADMIN_ROUTES } from './routesNames';
 import type { FC } from 'react';
 import type { RouteObject } from "react-router-dom"
-import {Input} from '../components'
 import { Home } from '../pages'
 
 

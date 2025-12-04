@@ -12,6 +12,7 @@ export const AUTH_USER_ROUTES = {
   PLACE: '/place',
   MAP: '/map',
   PROFILE: '/profile',
+  LOGOUT: '/LOGOUT',
 } as const;
 
 export const ADMIN_ROUTES = {

@@ -1,0 +1,84 @@
+:root {
+  --font-main: 'Poppins', sans-serif;
+  --color-bg: #f8f8f8;
+  --color-text: #333;
+  --radius: 12px;
+}
+
+// --------------------------colors-------------------------------
+
+// _marine
+$basic-decore-color_marine: #003f51;
+$basic-decore-color-svg_marine: #0091ac;
+$secondary-decore-color_marine: #055e74;
+$general-background-color_marine: #00fff7;
+$secondary-background-color_marine: #00fff7;
+
+// _forest
+$basic-decore-color_forest: #00360b;
+$basic-decore-color-svg_forest: #085f19;
+$secondary-decore-color_forest: #055e74;
+$general-background-color_forest: #00fff7;
+$secondary-background-color_forest: #00fff7;
+
+// _______________________________________button + text color_light-theme_______________________________
+
+//_marine_button
+$button-color_default_marine: #0091ac;
+$button-color_hover_marine: #006f85;
+$button-color_active_marine: #055e74;
+$button-color_disabled_marine: #c5fffb;
+$shadow-color_marine: #004051ab;
+//_marine_text
+$basic-text-color_marine: #c5fffb;
+$headers1-text-color_marine: #47fff1;
+$headers2-text-color_marine: black;
+
+//_forest_button
+$button-color_default: #00991c;
+$button-color_hover: #06751b;
+$button-color_active: #085f19;
+$button-color_disabled: #afffbd;
+$shadow-color: #00360b9d;
+//_forest_text
+$basic-text-color: #edfff0;
+$headers1-text-color: #edfff0;
+$headers2-text-color: black;
+
+//---------------------------sizes----------------------------------
+
+$general-width: 100vw;
+$general-content-width: 1228px;
+
+$headers1-font-size: 46px;
+$headers2-font-size: 48px;
+$headers3-font-size: 35px;
+$large-font-size: 20px;
+$main-font-size: 18px;
+$small-font-size: 16px;
+$tiny-font-size: 14px;
+
+$padding-main: 50px;
+$gap-main: 20px;
+
+//---------------------------margins\paddings----------------------------------
+$padding-top-section-gap: 100px;
+$side-padding: 50px;
+
+
+$main-font-family: 'Poppins', sans-serif;
+$secondary-font-family: 'Science Gothic', sans-serif;
+$header-font-family: 'Nabla', sans-serif;
+
+
+$main-font-weight: 400;
+$secondary-font-weight: 500;
+$headers-font-weight: 600;
+$third-font-weight: 700;
+$bold-font-weight: 900;
+
+//---------------------------BreakPoints------------------------------
+$mobile: 375px;
+$tablet: 768px;
+$tablet-bigger: 1024px;
+$desktop: 1440px;

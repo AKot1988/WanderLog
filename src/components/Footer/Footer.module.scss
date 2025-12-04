@@ -1,31 +1,31 @@
-@import "../../app/variables.scss";
+@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/mixins.scss';
 
 .container {
   flex-shrink: 0;
-  background: $mainBackground;
+  background: $general-background-color_marine;
 }
 
 .footer {
   display: flex;
+  height: 70px;
   align-items: end;
   justify-content: center;
   box-sizing: border-box;
-  & h4 {
-    margin: 0;
-    color: $main;
-    padding: 0
-  }
-  max-width: $contentWidth;
+
+  max-width: $general-content-width;
   margin: 0 auto;
-  height: 100px;
-  background: $mainGradient;
+  background: $general-background-color_marine;
 
   &Title {
-    font-weight: thin;
-    color: #000000;
-    text-align: center;
-    padding-top: 10px;
-    line-height: 50px;
+    @include font(
+      $secondary-font-family,
+      $main-font-size,
+      $secondary-font-weight,
+      $basic-text-color_marine
+    );
+    margin: auto;
+    padding: 0;
   }
 }
 

@@ -1,8 +1,10 @@
-import type { CustomNavLinkProps } from "../CustomNavLink/CustomNavLink.tsx";
+import type { CustomNavLinkProps } from '../../components/CustomNavLink/types';
 
 export type HeaderProps = {
   logo: string;
-  navMenu: CustomNavLinkProps[];
+  navMenuSet: {
+    [key: string]: CustomNavLinkProps[];
+  };
   onClick?: () => void;
   avatarLink?: string;
 };

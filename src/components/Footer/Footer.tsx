@@ -2,7 +2,7 @@ import classes from "./Footer.module.scss";
 import type { FC } from "react";
 
 type FooterProps = {
-  title: string;
+  title?: string;
   className?: string | undefined;
 };
 

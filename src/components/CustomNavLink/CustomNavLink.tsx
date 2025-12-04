@@ -1,13 +1,6 @@
-import type { FC } from "react";
-import { NavLink } from "react-router-dom";
-
-export type CustomNavLinkProps = {
-  title: string;
-  path: string;
-  className?: string;
-  onClick?: () => void;
-  children?: JSX.Element;
-};
+import type { FC } from 'react';
+import { NavLink } from 'react-router-dom';
+import type {CustomNavLinkProps} from './types.ts'
 
 const CustomNavLink: FC<CustomNavLinkProps> = ({
   title,

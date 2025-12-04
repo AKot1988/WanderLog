@@ -1,10 +1,16 @@
 import { Outlet } from 'react-router-dom';
+import { Header, Footer } from '../../components';
+import classes from './Layout.module.scss';
+import { wonderHeaderProps } from '../../components/Header/helper'
 
 const Layout = () => {
   return (
     <>
-      <h1>Ебать, як так жить</h1>
-      <Outlet />
+      <div className={classes.layout__container}>
+        <Header {...wonderHeaderProps.guest} />
+        <Outlet />
+        <Footer />
+      </div>
     </>
   );
 };

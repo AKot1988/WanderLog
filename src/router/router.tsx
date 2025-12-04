@@ -1,13 +1,12 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   adminUserRoutes,
   authorizedUserRoutes,
   commonUserRoutes,
-  MockComponent,
 } from './routes';
 import type { RouteObject } from 'react-router-dom';
 import { AUTH_USER_ROLE } from '../firebase/auth';
-import { Layout } from '../pages'
+import { Layout } from '../pages';
 
 const checkUserRole = (): string => {
   return AUTH_USER_ROLE.GUEST;
@@ -38,7 +37,7 @@ const MyAppRouter = () => {
     },
   ]);
 
-  return <RouterProvider router={router} />
-}
+  return <RouterProvider router={router} />;
+};
 
-export default MyAppRouter
+export default MyAppRouter;
