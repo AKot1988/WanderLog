@@ -1,39 +1,54 @@
-@import '../../assets/scss/variables.scss';
-@import '../../assets/scss/mixins.scss';
+@use '../../assets/scss/variables.scss';
+@use '../../assets/scss/mixins.scss';
 
 .container {
   flex-shrink: 0;
-  background-color: $general-background-color_marine;
+  background-color: variables.$general-background-color_marine;
 }
 
 .header {
-  width: $general-content-width;
+  max-width: variables.$general-content-width;
   display: flex;
   flex-direction: row;
-  height: 70px;
+  justify-content: space-between;
+  height: variables.$header_footer--height;
   padding: 10px;
   margin: 0 auto;
 
   h1 {
-    @include font($header-font-family,
-      $headers1-font-size,
-      $bold-font-weight,
-      $basic-text-color );
+    @include mixins.font(variables.$header-font-family,
+      variables.$headers1-font-size,
+      variables.$bold-font-weight,
+      variables.$basic-text-color );
   }
 
   &__content {
     display: flex;
     flex-direction: row;
-
-    &__navContainer{
+    align-items: center;
+    justify-content: center;
+    
+    
+    &__navContainer {
+      display: flex;
+      gap: 5px;
+      margin-right: 10px;
+      padding-right: 10px;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
       
+      border-right: 2px solid variables.$basic-decore-color-svg_marine;
+
     }
+
+    &__navContainer {}
 
     &__navLink {}
 
     &__avatar {
-      // aspect-ratio: 1:1;
-      height: 20px;
+      aspect-ratio: 1 / 1;
+      height: 50px;
       border-radius: 50%;
     }
   }

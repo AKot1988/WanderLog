@@ -9,7 +9,7 @@ import { defaultSVGs } from '../../assets/SVGs.ts'
 
 import classes from './Header.module.scss';
 
-const Header: FC<HeaderProps> = ({ logo, navMenuSet, onClick, avatarLink }) => {
+const Header: FC<HeaderProps> = ({ logo, navMenuSet, avatarLink }) => {
 
   // const [user, setUser] = useState(auth.currentUser);
   // const [isWindowSmall, setIsWindowSmall] = useState(false);
@@ -37,14 +37,14 @@ const Header: FC<HeaderProps> = ({ logo, navMenuSet, onClick, avatarLink }) => {
       <div className={classes.container}>
         <div className={classes.header}>
           <h1>{logo}</h1>
-          <div className={classes.header_content}>
-            <nav>
+          <div className={classes.header__content}>
+            <nav className={classes.header__content__navContainer}>
               {navMenuSet.map((listItem) => (
-                <CustomNavLink {...listItem} className={classes.header_navLink} key={listItem.title} />
+                <CustomNavLink {...listItem} className={classes.header__content__navLink} key={listItem.title} />
               ))}
             </nav>
             <div className={classes.header_avatar}>
-              {avatarLink ? <img className={classes.header_content_avatar} src={avatarLink} alt="User avatar" /> : defaultSVGs.userAstronaut}
+              {avatarLink ? <img className={classes.header__content__avatar} src={avatarLink} alt="User avatar" /> : defaultSVGs.userAstronaut}
             </div>
 
           </div>

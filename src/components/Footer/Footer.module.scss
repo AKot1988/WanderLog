@@ -1,28 +1,28 @@
-@import '../../assets/scss/variables.scss';
-@import '../../assets/scss/mixins.scss';
+@use "../../assets/scss/mixins.scss";
+@use "../../assets/scss/variables.scss";
 
 .container {
   flex-shrink: 0;
-  background: $general-background-color_marine;
+  background: variables.$general-background-color_marine;
 }
 
 .footer {
   display: flex;
-  height: 70px;
+  height: variables.$header_footer--height;
   align-items: end;
   justify-content: center;
   box-sizing: border-box;
 
-  max-width: $general-content-width;
+  max-width: variables.$general-content-width;
   margin: 0 auto;
-  background: $general-background-color_marine;
+  background: variables.$general-background-color_marine;
 
   &Title {
-    @include font(
-      $secondary-font-family,
-      $main-font-size,
-      $secondary-font-weight,
-      $basic-text-color_marine
+    @include mixins.font(
+      variables.$secondary-font-family,
+      variables.$main-font-size,
+      variables.$secondary-font-weight,
+      variables.$basic-text-color_marine
     );
     margin: auto;
     padding: 0;

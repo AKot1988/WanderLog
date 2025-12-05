@@ -8,7 +8,9 @@ const Layout = () => {
     <>
       <div className={classes.layout__container}>
         <Header {...wonderHeaderProps.guest} />
-        <Outlet />
+        <div className={classes.layout__container__content__container}>
+          <Outlet />
+        </div>
         <Footer />
       </div>
     </>
