@@ -1,16 +1,14 @@
 import type { FC } from 'react';
 import type { HeaderProps } from './types.tsx';
-import { wonderHeaderProps } from './helper.ts';
 import { useState, useEffect } from 'react';
 import { CustomNavLink } from '../index.tsx';
 import { auth } from '../../firebase/auth.ts';
 import { useNavigate } from 'react-router-dom';
-import { defaultSVGs } from '../../assets/SVGs.ts'
+import { defaultSVGs } from '../../assets/SVGs.tsx';
 
 import classes from './Header.module.scss';
 
 const Header: FC<HeaderProps> = ({ logo, navMenuSet, avatarLink }) => {
-
   // const [user, setUser] = useState(auth.currentUser);
   // const [isWindowSmall, setIsWindowSmall] = useState(false);
   // useEffect(() => {
@@ -44,9 +42,8 @@ const Header: FC<HeaderProps> = ({ logo, navMenuSet, avatarLink }) => {
               ))}
             </nav>
             <div className={classes.header_avatar}>
-              {avatarLink ? <img className={classes.header__content__avatar} src={avatarLink} alt="User avatar" /> : defaultSVGs.userAstronaut}
+              {avatarLink ? <img className={classes.header__content__avatar} src={avatarLink} alt="User avatar" /> : defaultSVGs.userAstronautSVG}
             </div>
-
           </div>
         </div>
       </div>

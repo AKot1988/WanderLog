@@ -14,11 +14,11 @@ const CustomNavLink: FC<CustomNavLinkProps> = ({
       {children ? (
         <NavLink to={path} className={className} onClick={onClick}>
           {children}
-          {title}
+          {title.toUpperCase()}
         </NavLink>
       ) : (
         <NavLink to={path} className={className} onClick={onClick}>
-          {title}
+            {title.toUpperCase()}
         </NavLink>
       )}
     </>

@@ -19,9 +19,9 @@
 
   &Title {
     @include mixins.font(
-      variables.$secondary-font-family,
-      variables.$main-font-size,
-      variables.$secondary-font-weight,
+      variables.$main-font-family,
+      variables.$large-font-size,
+      variables.$third-font-weight,
       variables.$basic-text-color_marine
     );
     margin: auto;

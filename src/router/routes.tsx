@@ -1,4 +1,5 @@
 import { COMMON_ROUTES, AUTH_USER_ROUTES, ADMIN_ROUTES } from './routesNames';
+import { AuthorizationPage } from '../pages';
 import type { FC } from 'react';
 import type { RouteObject } from "react-router-dom"
 import { Home } from '../pages'
@@ -53,7 +54,7 @@ export const authorizedUserRoutes: RouteObject[] = [
 export const commonUserRoutes: RouteObject[] = [
   {
     path: COMMON_ROUTES.AUTHORIZATION,
-    Component: Home,
+    Component: AuthorizationPage,
   },
   {
     path: COMMON_ROUTES.ABOUT,

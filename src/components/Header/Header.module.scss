@@ -12,39 +12,49 @@
   flex-direction: row;
   justify-content: space-between;
   height: variables.$header_footer--height;
-  padding: 10px;
+  padding: 0 20px;
   margin: 0 auto;
 
-  h1 {
-    @include mixins.font(variables.$header-font-family,
-      variables.$headers1-font-size,
-      variables.$bold-font-weight,
-      variables.$basic-text-color );
-  }
+    h1 {
+      @include mixins.font(variables.$main-font-family,
+        variables.$headers1-font-size,
+        variables.$bold-font-weight,
+        variables.$basic-text-color );
+    }
 
   &__content {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    
-    
+
     &__navContainer {
       display: flex;
-      gap: 5px;
+      gap: 10px;
       margin-right: 10px;
       padding-right: 10px;
       justify-content: center;
       align-items: center;
       height: 50px;
-      
+
       border-right: 2px solid variables.$basic-decore-color-svg_marine;
 
     }
 
-    &__navContainer {}
+        &__navLink {
+          position: relative;
+          color: variables.$button-color_hover_marine;
+          @include mixins.font(variables.$main-font-family,
+            variables.$main-font-size,
+            variables.$main-font-weight,
+            variables.$basic-text-color_marine );
+          transition: all 0.3s;
 
-    &__navLink {}
+      &:hover {
+          color: variables.$button-color_hover_marine;
+          transform: scale(1.05);
+        }
+      }
 
     &__avatar {
       aspect-ratio: 1 / 1;

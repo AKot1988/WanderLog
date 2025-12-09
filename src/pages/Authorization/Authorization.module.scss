@@ -1,0 +1,46 @@
+@use '../../assets/scss/variables.scss';
+@use '../../assets/scss/mixins.scss';
+
+// a {
+//   max-width: 100px;
+//   max-height: 30px;
+//   background-color: rgb(1, 123, 253);
+//   color: white;
+//   border: 2px solid;
+//   border-radius: 2px;
+//   @include mixins.font(variables.$main-font-family,
+//     variables.$main-font-size,
+//     variables.$secondary-font-weight,
+//     variables.$basic-text-color );
+
+// }
+.containerAuthPage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.auth{
+  display: flex;
+  flex-direction: row;
+
+  &__SignInEmailButton,
+  &__SignUpEmailButton,
+  &__GoogleButton SVG{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    cursor: pointer;
+    
+  }
+
+  // &__GoogleButton a{
+  //   width: 50px;
+  //   height: 50px;
+  //   margin: 10px;
+  //   cursor: pointer;
+    
+  // }
+}
