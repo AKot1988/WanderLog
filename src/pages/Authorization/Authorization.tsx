@@ -7,9 +7,11 @@ import classes from './Authorization.module.scss';
 const AuthorizationPage: FC<any> = () => {
   return (
     <>
-      {authPagePropsSet.map((linkProps) => (
-        <CustomNavLink key={linkProps.title + linkProps.className} {...linkProps} />
-      ))}
+      <div className={classes.auth}>
+        {authPagePropsSet.map((linkProps) => (
+          <CustomNavLink key={linkProps.title + linkProps.className} {...linkProps} className={classes[linkProps.className]} />
+        ))}
+      </div>
     </>
   );
 };

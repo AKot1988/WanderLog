@@ -8,7 +8,6 @@ export const authPagePropsSet: CustomNavLinkProps[] = [
     className: 'auth__SignInEmailButton',
     path: '/',
     onClick: () => {},
-    // children: defaultSVGs.signInSVG,
     children: defaultSVGs.signInSVG,
   },
   {

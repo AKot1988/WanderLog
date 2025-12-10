@@ -4,17 +4,18 @@ import {
   authorizedUserRoutes,
   commonUserRoutes,
 } from './routes';
+import { auth } from '../firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect, useState } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import { AUTH_USER_ROLE } from '../firebase/auth';
 import { Layout } from '../pages';
 
-const checkUserRole = (): string => {
-  return AUTH_USER_ROLE.GUEST;
-};
+// const checkUserRole = (): string => {
+//   return AUTH_USER_ROLE.GUEST;
+// };
 
-const createRoutesByRole = (): RouteObject[] => {
-  const userRole = checkUserRole();
-
+const createRoutesByRole = (userRole: any): RouteObject[] => {
   switch (userRole) {
     case AUTH_USER_ROLE.GUEST:
       return [...commonUserRoutes];
@@ -28,7 +29,23 @@ const createRoutesByRole = (): RouteObject[] => {
 };
 
 const MyAppRouter = () => {
-  const appRoutes = createRoutesByRole();
+  const role = auth.currentUser ? AUTH_USER_ROLE.AUTHORIZED : AUTH_USER_ROLE.GUEST;
+  console.log('Current role in router:', role);
+  const [currentRole, setRole] = useState<any>(role);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        setRole(AUTH_USER_ROLE.AUTHORIZED);
+      } else {
+        setRole(AUTH_USER_ROLE.GUEST);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [auth]);
+
+  console.log('Rendering router with role:', currentRole);
+  const appRoutes = createRoutesByRole(currentRole);
   const router = createBrowserRouter([
     {
       path: '/',

@@ -1,46 +1,49 @@
-@use '../../assets/scss/variables.scss';
-@use '../../assets/scss/mixins.scss';
+@use '../../assets/scss/variables.scss' as variables;
+@use '../../assets/scss/mixins.scss' as mixins;
 
-// a {
-//   max-width: 100px;
-//   max-height: 30px;
-//   background-color: rgb(1, 123, 253);
-//   color: white;
-//   border: 2px solid;
-//   border-radius: 2px;
-//   @include mixins.font(variables.$main-font-family,
-//     variables.$main-font-size,
-//     variables.$secondary-font-weight,
-//     variables.$basic-text-color );
+.auth {
+  background-color: variables.$general-background-color_marine;
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  // width: variables.$general-content-width;
 
-// }
-.containerAuthPage{
   display: flex;
   flex-direction: column;
+  gap: 5px;
   align-items: center;
   justify-content: center;
-  height: 100%;
-}
-
-.auth{
-  display: flex;
-  flex-direction: row;
 
   &__SignInEmailButton,
-  &__SignUpEmailButton,
-  &__GoogleButton SVG{
-    width: 50px;
-    height: 50px;
-    margin: 10px;
+  &__LogInInEmailButton,
+  &__GoogleButton {
+    background-color: variables.$button-color_default_marine;
+    color: variables.$basic-text-color_marine;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 5px;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
     cursor: pointer;
-    
-  }
+    @include mixins.font(variables.$main-font-family, variables.$tiny-font-size, variables.$main-font-weight, variables.$basic-text-color);
 
-  // &__GoogleButton a{
-  //   width: 50px;
-  //   height: 50px;
-  //   margin: 10px;
-  //   cursor: pointer;
-    
-  // }
+    transition: all 0.3s ease-in-out;
+    & svg {
+      fill: variables.$basic-text-color_marine;
+      height: 100%;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      background-color: variables.$button-color_hover_marine;
+      box-shadow: 0px 4px 4px variables.$shadow-color_marine;
+      color: variables.$headers1-text-color_marine;
+      & svg {
+        fill: variables.$headers1-text-color_marine;
+      }
+    }
+  }
 }

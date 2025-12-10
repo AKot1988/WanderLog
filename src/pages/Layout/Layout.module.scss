@@ -1,5 +1,5 @@
-@use "../../assets/scss/variables.scss";
-@use "../../assets/scss/mixins.scss";
+@use '../../assets/scss/variables.scss' as variables;
+@use '../../assets/scss/mixins.scss' as mixins;
 
 .layout__container {
   width: 100vw;
@@ -9,10 +9,10 @@
   justify-content: space-between;
   background-color: variables.$general-background-color_marine;
 
-  &__content__container {
-    background-color: variables.$general-background-color_marine;
-    margin: 0 auto;
-    height: 100%;
-    width: variables.$general-content-width;
-  }
+  // &__content__container {
+  //   background-color: variables.$general-background-color_marine;
+  //   margin: 0 auto;
+  //   height: 100%;
+  //   width: variables.$general-content-width;
+  // }
 }

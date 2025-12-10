@@ -1,5 +1,5 @@
-@use '../../assets/scss/variables.scss';
-@use '../../assets/scss/mixins.scss';
+@use '../../assets/scss/variables.scss' as variables;
+@use '../../assets/scss/mixins.scss' as mixins;
 
 .container {
   flex-shrink: 0;
@@ -13,14 +13,15 @@
   justify-content: space-between;
   height: variables.$header_footer--height;
   padding: 0 20px;
+  padding-top: 20px;
   margin: 0 auto;
 
-    h1 {
-      @include mixins.font(variables.$main-font-family,
-        variables.$headers1-font-size,
-        variables.$bold-font-weight,
-        variables.$basic-text-color );
-    }
+  h1 {
+    @include mixins.font(variables.$main-font-family,
+      variables.$headers1-font-size,
+      variables.$bold-font-weight,
+      variables.$basic-text-color );
+  }
 
   &__content {
     display: flex;
@@ -41,20 +42,20 @@
 
     }
 
-        &__navLink {
-          position: relative;
-          color: variables.$button-color_hover_marine;
-          @include mixins.font(variables.$main-font-family,
-            variables.$main-font-size,
-            variables.$main-font-weight,
-            variables.$basic-text-color_marine );
-          transition: all 0.3s;
+    &__navLink {
+      position: relative;
+      color: variables.$basic-text-color_marine;
+      @include mixins.font(variables.$main-font-family,
+        variables.$main-font-size,
+        variables.$main-font-weight,
+        variables.$basic-text-color_marine );
+      transition: all 0.3s ease-in-out;
 
       &:hover {
-          color: variables.$button-color_hover_marine;
-          transform: scale(1.05);
-        }
+        color: variables.$button-color_hover_marine;
+        transform: scale(1.05);
       }
+    }
 
     &__avatar {
       aspect-ratio: 1 / 1;
