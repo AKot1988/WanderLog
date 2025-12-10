@@ -1,8 +1,12 @@
+import { AUTH_USER_ROLE } from './auth';
+
+export type AuthUserRole = (typeof AUTH_USER_ROLE)[keyof typeof AUTH_USER_ROLE];
+
 export type UserCredentialsEmailProps = {
   [k: string]: string;
-}
+};
 
-import { Timestamp, DocumentReference } from "firebase/firestore";
+import { Timestamp, DocumentReference } from 'firebase/firestore';
 
 export type NewUserFormData = {
   [key: string]: string | undefined | number;
@@ -24,55 +28,55 @@ export type userDataProps = {
 };
 
 export enum USERCREATETYPE {
-  CREATE = "create",
-  EDIT = "edit",
+  CREATE = 'create',
+  EDIT = 'edit',
 }
 
 export enum PRIORITY {
-  LOW = "low",
-  MEDIUM = "medium",
-  HIGH = "high",
-  POSSIBLE = "possible",
+  LOW = 'low',
+  MEDIUM = 'medium',
+  HIGH = 'high',
+  POSSIBLE = 'possible',
 }
 
 export enum MOUNTHS {
-  Jan = "Jan",
-  Feb = "Feb",
-  Mar = "Mar",
-  Apr = "Apr",
-  May = "May",
-  Jun = "Jun",
-  Jul = "Jul",
-  Aug = "Aug",
-  Sep = "Sep",
-  Oct = "Oct",
-  Nov = "Nov",
-  Dec = "Dec",
+  Jan = 'Jan',
+  Feb = 'Feb',
+  Mar = 'Mar',
+  Apr = 'Apr',
+  May = 'May',
+  Jun = 'Jun',
+  Jul = 'Jul',
+  Aug = 'Aug',
+  Sep = 'Sep',
+  Oct = 'Oct',
+  Nov = 'Nov',
+  Dec = 'Dec',
 }
 
 export enum UKRMOUNTS {
-  Jan = "Січня",
-  Feb = "Лютого",
-  Mar = "Березня",
-  Apr = "Квітня",
-  May = "Травня",
-  Jun = "Червня",
-  Jul = "Липня",
-  Aug = "Серпня",
-  Sep = "Вересня",
-  Oct = "Жовтня",
-  Nov = "Листопада",
-  Dec = "Грудня",
+  Jan = 'Січня',
+  Feb = 'Лютого',
+  Mar = 'Березня',
+  Apr = 'Квітня',
+  May = 'Травня',
+  Jun = 'Червня',
+  Jul = 'Липня',
+  Aug = 'Серпня',
+  Sep = 'Вересня',
+  Oct = 'Жовтня',
+  Nov = 'Листопада',
+  Dec = 'Грудня',
 }
 
 export enum WEEKDAYS {
-  Mon = "Понеділок",
-  Tue = "Вівторок",
-  Wed = "Середа",
-  Thu = "Четвер",
+  Mon = 'Понеділок',
+  Tue = 'Вівторок',
+  Wed = 'Середа',
+  Thu = 'Четвер',
   Fri = "П'ятниця",
-  Sat = "Субота",
-  Sun = "Неділя",
+  Sat = 'Субота',
+  Sun = 'Неділя',
 }
 
 export type DatePattern = {
@@ -94,8 +98,8 @@ export type NewEventData = {
 };
 
 export const imageDestination = {
-  AVATAR: "UsersAvatars/",
-  EVENT: "EventsImages/",
+  AVATAR: 'UsersAvatars/',
+  EVENT: 'EventsImages/',
 } as const;
 
 // export type addFileToStorageProps = {

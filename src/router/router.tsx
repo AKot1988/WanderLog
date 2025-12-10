@@ -53,7 +53,8 @@ const MyAppRouter = () => {
       children: appRoutes,
     },
   ]);
-
+  
+  console.log('Обєкт роутра', router);
   return <RouterProvider router={router} />;
 };
 

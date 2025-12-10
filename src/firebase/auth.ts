@@ -7,11 +7,13 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signOut,
 } from 'firebase/auth';
 
 import type { UserCredentialsEmailProps } from './types';
 
 export const auth = getAuth(app);
+
 export const AUTH_USER_ROLE = {
   AUTHORIZED: 'authorized',
   GUEST: 'guest',
@@ -46,6 +48,14 @@ export const createUserEmailPassword = async ({ email, password }: UserCredentia
 const provider = new GoogleAuthProvider();
 provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 auth.languageCode = 'ukrainian';
+
+export const signOutUser = async () => {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    console.error('Sign-out error:', error);
+  }
+};
 
 export const googleSignIn = async (): any => {
   try {

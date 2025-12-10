@@ -42,7 +42,11 @@ const Header: FC<HeaderProps> = ({ logo, navMenuSet, avatarLink }) => {
               ))}
             </nav>
             <div className={classes.header_avatar}>
-              {avatarLink ? <img className={classes.header__content__avatar} src={avatarLink} alt="User avatar" /> : defaultSVGs.userAstronautSVG}
+              {avatarLink?.trim() ? (
+                <img className={classes.header__content__avatar} src={avatarLink} alt="User avatar" />
+              ) : (
+                defaultSVGs.userAstronautSVG
+              )}
             </div>
           </div>
         </div>
