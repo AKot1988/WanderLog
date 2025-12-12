@@ -1,5 +1,5 @@
-// import { duration } from "@mui/material";
-// import { delay } from "framer-motion";
+import { duration } from '@mui/material';
+import { delay } from 'framer-motion';
 
 export const textAnimation = {
   hidden: { opacity: 0, x: -100 },
@@ -29,7 +29,7 @@ export const contactBlockAnimation = {
   visible: (custom: number) => ({
     opacity: 1,
     x: 0,
-    width: "100%",
+    width: '100%',
     transition: {
       delay: custom * 0.2,
       duration: 1,
@@ -42,7 +42,7 @@ export const fadeTransparentInAnimation = {
   visible: (custom: number) => ({
     opacity: 1,
     transition: {
-      delay: custom * 0.2,
+      delay: custom * 5,
     },
   }),
 };
@@ -74,6 +74,6 @@ export const rotateSVGs = {
   whileTap: {
     scale: 0.8,
     rotate: -90,
-    borderRadius: "100%",
+    borderRadius: '100%',
   },
 };

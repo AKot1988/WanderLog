@@ -1,6 +1,7 @@
 import type { FC } from "react"
 import { useState, useEffect } from "react";
-import type { InputType, InputElementProps } from "../Input/type";
+import { InputType } from '../Input/type';
+import type { InputElementProps } from '../Input/type';
 import classes from "./Input.module.scss";
 
 const Input: FC<InputElementProps> = ({

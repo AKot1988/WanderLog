@@ -79,7 +79,7 @@ export const googleSignIn = async (): any => {
   }
 };
 
-export const sinInByEmailCredentials = async (email: string, password: string) => {
+export const logInByEmailCredentials = async (email: string, password: string) => {
   try {
     (userCredential: any) => {
       // Signed in

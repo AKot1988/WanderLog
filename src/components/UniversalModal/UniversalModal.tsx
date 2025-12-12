@@ -30,18 +30,11 @@ const UniversalModal: FC<ModalProps> = ({
       initial="hidden"
       whileInView="visible"
       variants={fadeTransparentInAnimation}
-      className={rootClasses.join(" ")}
+      className={rootClasses.join(' ')}
       onClick={() => setVisible(false)}
     >
-      <div
-        id="modal"
-        className={classes.modalContent}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div
-          className={classes.modalBtnClose}
-          onClick={() => setVisible(false)}
-        >
+      <div id="modal" className={classes.modalContent} onClick={(e) => e.stopPropagation()}>
+        <div className={classes.modalBtnClose} onClick={() => setVisible(false)}>
           {CloseBtn.closeIcon}
         </div>
         <h2 className={classes.modalTitle}>{title}</h2>
