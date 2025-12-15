@@ -11,10 +11,6 @@ import type { RouteObject } from 'react-router-dom';
 import { AUTH_USER_ROLE } from '../firebase/auth';
 import { Layout } from '../pages';
 
-// const checkUserRole = (): string => {
-//   return AUTH_USER_ROLE.GUEST;
-// };
-
 const createRoutesByRole = (userRole: any): RouteObject[] => {
   switch (userRole) {
     case AUTH_USER_ROLE.GUEST:
@@ -30,7 +26,6 @@ const createRoutesByRole = (userRole: any): RouteObject[] => {
 
 const MyAppRouter = () => {
   const role = auth.currentUser ? AUTH_USER_ROLE.AUTHORIZED : AUTH_USER_ROLE.GUEST;
-  console.log('Current role in router:', role);
   const [currentRole, setRole] = useState<any>(role);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
@@ -44,7 +39,6 @@ const MyAppRouter = () => {
     return () => unsubscribe();
   }, [auth]);
 
-  console.log('Rendering router with role:', currentRole);
   const appRoutes = createRoutesByRole(currentRole);
   const router = createBrowserRouter([
     {
@@ -53,8 +47,7 @@ const MyAppRouter = () => {
       children: appRoutes,
     },
   ]);
-  
-  console.log('Обєкт роутра', router);
+
   return <RouterProvider router={router} />;
 };
 

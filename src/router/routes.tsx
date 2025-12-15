@@ -48,6 +48,11 @@ export const authorizedUserRoutes: RouteObject[] = [
     path: AUTH_USER_ROUTES.PROFILE,
     element: <MockComponent text={AUTH_USER_ROUTES.PROFILE} />,
   },
+
+  {
+    path: AUTH_USER_ROUTES.MAP,
+    element: <MockComponent text={AUTH_USER_ROUTES.MAP} />,
+  },
 ];
 
 

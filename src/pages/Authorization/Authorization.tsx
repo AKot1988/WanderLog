@@ -17,10 +17,8 @@ const AuthorizationPage: FC<any> = () => {
     setIsLOGinModalVisible(!isLOGinModalVisible);
   };
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
-  console.log(UPDATEDauthNavLinkPropSet);
-  console.log(authFormPropSet.logInFormProps);
   return (
     <>
       <div className={classes.auth}>

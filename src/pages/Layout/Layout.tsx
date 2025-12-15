@@ -14,7 +14,6 @@ const Layout = () => {
     // тут треба додати сценарій перевірки юзера на адміна
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log('User is signed in:', user);
         setCurrentUser('authorized');
         headerProps = wonderHeaderProps['authorized'];
         headerProps.avatarLink = user.photoURL || '';

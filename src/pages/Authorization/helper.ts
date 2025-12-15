@@ -52,7 +52,7 @@ export const authFormPropSet: { [key: string]: { [key: string]: FormProps } } = 
         },
       ],
       button: {
-        text: 'Log In',
+        text: 'Sign Up',
         clickHandler: () => {
           () => console.log('Sign Up button clicked');
         },
