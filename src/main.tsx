@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import MyAppRouter from './router/router.tsx';
+import MyAppRouter from './router/index.tsx';
 import './assets/scss/reset.scss';
 import './assets/scss/variables.scss';
 import './assets/scss/mixins.scss';
