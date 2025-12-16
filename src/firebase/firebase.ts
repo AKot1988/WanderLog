@@ -1,9 +1,9 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCE-CYTHJmb9pWG97GD2IncbXnSgv5MBQU',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: 'wanderlogakot.firebaseapp.com',
   projectId: 'wanderlogakot',
   storageBucket: 'wanderlogakot.firebasestorage.app',

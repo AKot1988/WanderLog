@@ -1,9 +1,8 @@
-import { COMMON_ROUTES, AUTH_USER_ROUTES, ADMIN_ROUTES } from './routesNames';
-import { AuthorizationPage } from '../pages';
 import type { FC } from 'react';
-import type { RouteObject } from "react-router-dom"
-import { Home } from '../pages'
-
+import type { RouteObject } from 'react-router-dom';
+import { COMMON_ROUTES, AUTH_USER_ROUTES, ADMIN_ROUTES } from './routesNames';
+import { fetchPlaceDetails } from '../firebase/api.ts';
+import { AuthorizationPage, Place, Home } from '../pages';
 
 // DELETE THIS Component
 
@@ -39,10 +38,13 @@ export const authorizedUserRoutes: RouteObject[] = [
   {
     path: AUTH_USER_ROUTES.PLACES,
     element: <MockComponent text={AUTH_USER_ROUTES.PLACES} />,
-  },
-  {
-    path: AUTH_USER_ROUTES.PLACE,
-    element: <MockComponent text={AUTH_USER_ROUTES.PLACE} />,
+    children: [
+      {
+        path: `:placeId`,
+        element: <Place />,
+        loader: fetchPlaceDetails,
+      },
+    ],
   },
   {
     path: AUTH_USER_ROUTES.PROFILE,
@@ -54,7 +56,6 @@ export const authorizedUserRoutes: RouteObject[] = [
     element: <MockComponent text={AUTH_USER_ROUTES.MAP} />,
   },
 ];
-
 
 export const commonUserRoutes: RouteObject[] = [
   {

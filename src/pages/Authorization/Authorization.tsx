@@ -16,7 +16,6 @@ const AuthorizationPage: FC<any> = () => {
   UPDATEDauthNavLinkPropSet[1].onClick = () => {
     setIsLOGinModalVisible(!isLOGinModalVisible);
   };
-
   // useEffect(() => {}, []);
 
   return (
