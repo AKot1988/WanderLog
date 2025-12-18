@@ -1,9 +1,48 @@
 import type { FC } from 'react';
 import { useState, useEffect } from 'react';
 import { writeUserData, readUserData } from '../../firebase/api';
+import { auth } from '../../firebase/auth';
+import { createUserEmailPassword, logInByEmailCredentials } from '../../firebase/auth';
 import { authFormPropSet, authNavLinkPropSet } from './helper';
 import { CustomNavLink, UniversalForm, UniversalModal } from '../../components';
 import classes from './Authorization.module.scss';
+import { redirect } from 'react-router-dom';
+
+export const authorizationAction = async ({ request }: { request: Request }) => {
+  const formData = await request.formData();
+  const newUserData = {
+    email: formData.get('email'),
+    password: formData.get('password'),
+  };
+
+  let user = auth.currentUser;
+  console.log('Form Data:', Object.fromEntries(formData.entries()));
+  switch (formData.get('formType')) {
+    case 'login':
+      // Call log-in function
+      return await logInByEmailCredentials(newUserData.email as string, newUserData.password as string)
+        .then(() => {
+          user = auth.currentUser;
+          redirect('/wall');
+        })
+        .catch((error) => {
+          console.error('Error during sign-up:', error);
+          redirect('/authorization');
+        });
+    case 'signup':
+      await createUserEmailPassword({ email: newUserData.email as string, password: newUserData.password as string })
+        .then(() => {
+          user = auth.currentUser;
+          redirect('/wall');
+        })
+        .catch((error) => {
+          console.error('Error during sign-up:', error);
+          redirect('/authorization');
+        });
+    // Call sign-up function`
+  }
+  return null;
+};
 
 const AuthorizationPage: FC<any> = () => {
   const [isSIGNinModalVisible, setisSIGNinModalVisible] = useState(false);
@@ -14,6 +53,13 @@ const AuthorizationPage: FC<any> = () => {
   };
   UPDATEDauthNavLinkPropSet[1].onClick = () => {
     setIsLOGinModalVisible(!isLOGinModalVisible);
+  };
+  let UPDATEDAuthFormPropSet = authFormPropSet;
+  UPDATEDAuthFormPropSet.SIGNInFormProps.button.clickHandler = () => {
+    createUserEmailPassword;
+  };
+  UPDATEDAuthFormPropSet.logInFormProps.button.clickHandler = () => {
+    logInByEmailCredentials;
   };
   // useEffect(() => {}, []);
 
@@ -26,7 +72,7 @@ const AuthorizationPage: FC<any> = () => {
       </div>
       {isSIGNinModalVisible ? (
         <UniversalModal
-          content={<UniversalForm {...authFormPropSet.SIGNInFormProps} />}
+          content={<UniversalForm {...UPDATEDAuthFormPropSet.SIGNInFormProps} />}
           visible={isSIGNinModalVisible}
           setVisible={setisSIGNinModalVisible}
           title={''}
@@ -34,7 +80,7 @@ const AuthorizationPage: FC<any> = () => {
       ) : null}
       {isLOGinModalVisible ? (
         <UniversalModal
-          content={<UniversalForm {...authFormPropSet.logInFormProps} />}
+          content={<UniversalForm {...UPDATEDAuthFormPropSet.logInFormProps} />}
           visible={isLOGinModalVisible}
           setVisible={setIsLOGinModalVisible}
           title={''}

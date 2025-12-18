@@ -32,7 +32,7 @@ export const authFormPropSet: { [key: string]: FormProps } = {
   SIGNInFormProps: {
     formType: 'signup',
     title: 'Sign Up to WanderLog',
-    action: '/login',
+    action: '/authorization',
     method: 'post',
     inputs: [
       {
@@ -72,7 +72,7 @@ export const authFormPropSet: { [key: string]: FormProps } = {
   logInFormProps: {
     formType: 'login',
     title: 'Log In to WanderLog',
-    action: '/login',
+    action: '/authorization',
     method: 'post',
     inputs: [
       {

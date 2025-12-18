@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import { COMMON_ROUTES, AUTH_USER_ROUTES, ADMIN_ROUTES } from './routesNames';
 import { fetchPlaceDetails } from '../firebase/api.ts';
+import { authorizationAction } from '../pages/Authorization/Authorization.tsx';
 import { AuthorizationPage, Place, Home } from '../pages';
 
 // DELETE THIS Component
@@ -61,6 +62,7 @@ export const commonUserRoutes: RouteObject[] = [
   {
     path: COMMON_ROUTES.AUTHORIZATION,
     Component: AuthorizationPage,
+    action: authorizationAction,
   },
   {
     path: COMMON_ROUTES.ABOUT,

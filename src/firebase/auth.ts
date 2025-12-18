@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import type { UserCredentialsEmailProps } from './types';
 import { app } from './firebase';
 import {
   getAuth,
@@ -10,10 +10,7 @@ import {
   signOut,
 } from 'firebase/auth';
 
-import type { UserCredentialsEmailProps } from './types';
-
 export const auth = getAuth(app);
-
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
