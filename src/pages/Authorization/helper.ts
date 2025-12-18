@@ -28,99 +28,77 @@ export const authNavLinkPropSet: CustomNavLinkProps[] = [
   },
 ];
 
-export const authFormPropSet: { [key: string]: { [key: string]: FormProps } } = {
+export const authFormPropSet: { [key: string]: FormProps } = {
   SIGNInFormProps: {
-    data: {
-      formType: 'signup',
-      title: 'Sign Up to WanderLog',
-      action: '/login',
-      method: 'post',
-      inputs: [
-        {
-          id: 'email',
-          type: 'email',
-          placeHolder: 'Enter your email',
-          name: 'email',
-          required: true,
-        },
-        {
-          id: 'password',
-          type: 'password',
-          placeHolder: 'Enter your password',
-          name: 'password',
-          required: true,
-        },
-      ],
-      button: {
-        text: 'Sign Up',
-        clickHandler: () => {
-          () => console.log('Sign Up button clicked');
-        },
+    formType: 'signup',
+    title: 'Sign Up to WanderLog',
+    action: '/login',
+    method: 'post',
+    inputs: [
+      {
+        label: 'Email',
+        id: 'email',
+        type: 'email',
+        placeHolder: 'Enter your email',
+        name: 'email',
+        required: true,
       },
-      redirect: '',
-      // redirect: '/places',
+      {
+        label: 'Password',
+        id: 'password',
+        type: 'password',
+        placeHolder: 'Create a password',
+        name: 'password',
+        required: true,
+      },
+      {
+        label: 'Confirm Password',
+        id: 'password',
+        type: 'password',
+        placeHolder: 'Confirm your password',
+        name: 'password',
+        required: true,
+      },
+    ],
+    button: {
+      text: 'Sign Up',
+      clickHandler: () => {
+        () => console.log('Sign Up button clicked');
+      },
     },
+    redirect: '',
+    // redirect: '/places',
   },
   logInFormProps: {
-    data: {
-      formType: 'login',
-      title: 'Log In to WanderLog',
-      action: '/login',
-      method: 'post',
-      inputs: [
-        // {
-        //   id: 'email',
-        //   type: 'email',
-        //   placeHolder: 'Enter your email',
-        //   name: 'email',
-        //   required: true,
-        // },
-        // {
-        //   id: 'password',
-        //   type: 'password',
-        //   placeHolder: 'Enter your password',
-        //   name: 'password',
-        //   required: true,
-        // },
-      ],
-      button: {
-        text: 'Log In',
-        clickHandler: () => {
-          () => console.log('Log In button clicked');
-        },
+    formType: 'login',
+    title: 'Log In to WanderLog',
+    action: '/login',
+    method: 'post',
+    inputs: [
+      {
+        label: 'Email',
+        id: 'email',
+        type: 'email',
+        placeHolder: 'Enter your email',
+        name: 'email',
+        required: true,
       },
-      redirect: '',
-      // redirect: '/places',
+      {
+        label: 'Password',
+        id: 'password',
+        type: 'password',
+        placeHolder: 'Enter your password',
+        name: 'password',
+        required: true,
+      },
+    ],
+    button: {
+      text: 'Log In',
+      clickHandler: () => {
+        () => console.log('Log In button clicked');
+      },
     },
+    redirect: '',
+    // redirect: '/places',
   },
 };
-
-// export const logInFormProps: FormProps = {
-//   formType: 'login',
-//   title: 'Log In to WanderLog',
-//   action: '/login',
-//   method: 'post',
-//   inputs: [
-//     {
-//       id: 'email',
-//       type: 'email',
-//       placeHolder: 'Enter your email',
-//       name: 'email',
-//       required: true,
-//     },
-//     {
-//       id: 'password',
-//       type: 'password',
-//       placeHolder: 'Enter your password',
-//       name: 'password',
-//       required: true,
-//     },
-//   ],
-//   button: {
-//     text: 'Log In',
-//     clickHandler: () => {
-//       () => console.log('Log In button clicked');
-//     },
-//   },
-//   redirect: '/places',
-// };

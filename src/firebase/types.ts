@@ -1,4 +1,21 @@
-import { AUTH_USER_ROLE } from './auth';
+export interface UserData {
+  userId: string;
+  name: string;
+  surname?: string;
+  nickName: string;
+  email: string;
+  imageUrl?: string;
+  birthdate?: string | Timestamp;
+  createdAt?: Timestamp;
+  updatedAt?: Timestamp;
+  role: keyof typeof AUTH_USER_ROLE;
+}
+
+export const AUTH_USER_ROLE = {
+  AUTHORIZED: 'authorized',
+  GUEST: 'guest',
+  ADMIN: 'admin',
+} as const;
 
 export type AuthUserRole = (typeof AUTH_USER_ROLE)[keyof typeof AUTH_USER_ROLE];
 

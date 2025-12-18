@@ -1,63 +1,61 @@
-// @use '../../assets/scss/variables.scss' as variables;
-// @use '../../assets/scss/mixins.scss' as mixins;
+@use '../../assets/scss/variables.scss' as variables;
+@use '../../assets/scss/mixins.scss' as mixins;
 
-// .error {
+.error {
   
-//   position: absolute;
-//   font-size: 10px;
-//   top: 45px;
-//   left: 80px;
-//   color: rgb(255, 0, 0);
-// }
+  position: absolute;
+  font-size: 10px;
+  top: 50px;
+  left: 0px;
+  color: rgb(255, 0, 0);
+}
 
-// .input {
-//   &Container {
-//     width: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     position: relative;
-//   }
+.input {
+  &Container {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
 
-//   &Label {
-//     margin: 0 auto;
-//     color: $main;
-//     text-align: start;
-//     width: 50%;
-//     font-size: 16px;
-//     font-weight: 500;
-//   }
+  &Label {
+    text-align: start;
+    font-size: 16px;
+    font-weight: 500;
+  }
 
 
-//   &Item {
-//     font-family: "Poppins", sans-serif;
-//     box-sizing: content-box;
-//     width: 80%;
-//     margin: 0px auto 10px;
-//     background-color: $mainGray;
-//     color: $main;
-//     border: none;
-//     outline: none;
-//     box-shadow: none;
-//     box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3);
-//     border-radius: 10px;
-//     font-size: 16px;
-//     padding: 10px 20px;
-//     font-weight: 300;
+  &Item {
+    width: 100%;
+    box-sizing: border-box;
+    color: variables.$basic-decore-color_marine;
+    background-color: variables.$button-color_default_marine;
+    @include mixins.font(variables.$main-font-family, variables.$tiny-font-size, variables.$main-font-weight, variables.$basic-decore-color_marine);
+    margin-bottom: 10px;
+    padding: 0px;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s;
+    &::placeholder {
+      color: variables.$general-background-color_marine;
+    }
+
+    &:focus {
+      border: 3px solid variables.$button-color_active_marine;
+    }
+  }
   
   
-//     &::placeholder {
-//       color: $main;
-//       font-weight: 300;
-//     }
+    &:last-child {
+      margin-bottom: 50;
+    }
   
-//     &:last-child {
-//       margin-bottom: 50;
-//     }
+    &:hover {
+      box-shadow: inset 0 6px 6px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s;
+    }
   
-//     &:hover {
-//       box-shadow: inset 0 6px 6px rgba(0, 0, 0, 0.3);
-//       transition: all 0.3s;
-//     }
-  
-//   }
-// }
+  }
+

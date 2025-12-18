@@ -1,22 +1,9 @@
 import type { FC } from 'react';
-import type { ModalProps } from '../../components/UniversalModal/helper';
-import type { FormProps } from '../../components/UniversalForm/types';
-import { authFormPropSet, authNavLinkPropSet } from './helper';
-import { writeUserData, readUserData } from '../../firebase/api';
-import { CustomNavLink, UniversalForm, UniversalModal } from '../../components';
 import { useState, useEffect } from 'react';
+import { writeUserData, readUserData } from '../../firebase/api';
+import { authFormPropSet, authNavLinkPropSet } from './helper';
+import { CustomNavLink, UniversalForm, UniversalModal } from '../../components';
 import classes from './Authorization.module.scss';
-
-const test = {
-  userId: 'ZTXv83v0ynB2MS9YWrYm',
-  name: 'testUserId',
-  email: 'testUserId',
-  imageUrl: 'testUserId',
-};
-await writeUserData(test);
-const teastReadData = await readUserData({ userID: '123123123' });
-console.log('teastReadData', teastReadData);
-
 
 const AuthorizationPage: FC<any> = () => {
   const [isSIGNinModalVisible, setisSIGNinModalVisible] = useState(false);
@@ -42,7 +29,7 @@ const AuthorizationPage: FC<any> = () => {
           content={<UniversalForm {...authFormPropSet.SIGNInFormProps} />}
           visible={isSIGNinModalVisible}
           setVisible={setisSIGNinModalVisible}
-          title={'реестрація нового користувача'}
+          title={''}
         />
       ) : null}
       {isLOGinModalVisible ? (
@@ -50,7 +37,7 @@ const AuthorizationPage: FC<any> = () => {
           content={<UniversalForm {...authFormPropSet.logInFormProps} />}
           visible={isLOGinModalVisible}
           setVisible={setIsLOGinModalVisible}
-          title={'введіть пошту і пароль для входу'}
+          title={''}
         />
       ) : null}
     </>

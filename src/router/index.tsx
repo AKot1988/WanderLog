@@ -8,7 +8,7 @@ import { auth } from '../firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import type { RouteObject } from 'react-router-dom';
-import { AUTH_USER_ROLE } from '../firebase/auth';
+import { AUTH_USER_ROLE } from '../firebase/types';
 import { Layout } from '../pages';
 
 const createRoutesByRole = (userRole: any): RouteObject[] => {

@@ -1,34 +1,26 @@
 import { db } from './firebase';
-import { doc, setDoc, getDoc, collection } from 'firebase/firestore';
+import { UserData } from './types';
+import { doc, setDoc, getDoc, collection, serverTimestamp } from 'firebase/firestore';
 
 // const dbRef = ref(database);
 
 const usersCollectionRef = collection(db, 'usersExtendedData');
 const placesCollectionRef = collection(db, 'places');
 
-interface UserData {
-  userId: string;
-  name: string;
-  email: string;
-  imageUrl: string;
-}
-// пишемо дані користувача у базу даних, саме в розділ "users" в юзерІД. Пропси поки ені, проте треба буде типізувати
-export const writeUserData = async ({ userId, name, email, imageUrl }: UserData): Promise<void> => {
-  await setDoc(doc(usersCollectionRef, '123123123'), {
-    userId,
-    email,
-    imageUrl,
-    name,
+// пишемо дані користувача у базу даних, саме в розділ "users" в юзерІД. Автоматом створюється новий документ і колекція, якщо їх нема (якщо немає)
+export const writeUserData = async (data: UserData): Promise<void> => {
+  await setDoc(doc(usersCollectionRef, data.userId), {
+    ...data,
+    surname: data.surname ?? null,
+    imageUrl: data.imageUrl ?? null,
+    birthdate: data.birthdate ?? null,
+    updatedAt: serverTimestamp(),
   });
 };
 
-// export getUsersData = async (userID): Promise<any> => {
-//  reyrn doc(dbRef, 'usersExtendedData', `${userID}`)
-// }
-
-export const readUserData = async ({ userID }: any) => {
+export const readUserData = async ({ userId }: any) => {
   let usData: any = null;
-  const usDataRef = doc(usersCollectionRef, `${userID}`);
+  const usDataRef = doc(usersCollectionRef, `${userId}`);
   const usDataSnap = await getDoc(usDataRef);
   if (usDataSnap.exists()) {
     usData = usDataSnap.data();

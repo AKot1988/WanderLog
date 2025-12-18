@@ -1,34 +1,56 @@
-// @use "../../assets/scss/mixins.scss";
-// @use "../../assets/scss/variables.scss";
+@use '../../assets/scss/mixins.scss';
+@use '../../assets/scss/variables.scss';
 
-// .form {
-//   display: flex;
-//   flex-direction: column;
-//   max-width: 400px;
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
 
-//   &Title{
-//     margin-bottom: 40px;
-//     font-size: 20px;
-//     font-weight: 700;
-//   }
-
-//   &Button {
-//     width: 80%;
-//     box-sizing:content-box;
-//     margin: 20px auto 20px;
-//     background-color: $mainGray;
-//     color: $lightGray;
-//     border: none;
-//     outline: none;
-//     box-shadow: none;
+//   & input {
+//     width: 100%;
+//     box-sizing: border-box;
+//     color: variables.$basic-decore-color_marine;
+//     background-color: variables.$button-color_default_marine;
+//     @include mixins.font(variables.$main-font-family, variables.$tiny-font-size, variables.$main-font-weight, variables.$basic-decore-color_marine);
+//     margin-bottom: 10px;
+//     padding: 0px;
 //     font-size: 16px;
-//     padding: 10px 20px;
-//     font-weight: 300;
-//     border-radius: 10px;
-//     &:hover {
-//       background-color: #3e3d3d;;
-//       color: $lightGray;
-//       transition: all 0.3s;
+//     border-radius: 5px;
+//     outline: none;
+//     transition: all 0.3s;
+//     &::placeholder {
+//       color: variables.$general-background-color_marine;
+//     }
+
+//     &:focus {
+//       border: 3px solid variables.$button-color_active_marine;
 //     }
 //   }
-// }
+
+  &Title {
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &Button {
+    // width: 80%;
+    box-sizing: border-box;
+    margin: 10px 0 20px;
+    background-color: variables.$button-color_default_marine;
+    color: variables.$general-background-color_marine;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: all 0.3s;
+    &:hover {
+      background-color: variables.$button-color_hover_marine;
+      color: variables.$general-background-color_marine;
+      box-shadow: variables.$button-color_default_marine 0px 4px 15px;
+    }
+  }
+}
