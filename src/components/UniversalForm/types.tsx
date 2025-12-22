@@ -7,8 +7,13 @@ export const Method = {
   DELETE: 'delete',
 } as const;
 
+export const FormType = {
+  SIGNUP: 'signup',
+  LOGIN: 'login',
+} as const;
+
 export type FormProps = {
-  formType: 'login' | 'signup' | 'custom';
+  formType?: keyof typeof FormType;
   title: string;
   action: keyof typeof COMMON_ROUTES | keyof typeof AUTH_USER_ROUTES | keyof typeof ADMIN_ROUTES | string;
   method: (typeof Method)[keyof typeof Method];

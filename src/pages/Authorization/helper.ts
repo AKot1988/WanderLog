@@ -1,3 +1,5 @@
+import { InputType } from './../../components/Input/type';
+import { FormType } from './../../components/UniversalForm/types';
 import type { ModalProps } from '../../components/UniversalModal/helper';
 import type { FormProps } from '../../components/UniversalForm/types';
 import type { CustomNavLinkProps } from '../../components/CustomNavLink/types';
@@ -30,7 +32,6 @@ export const authNavLinkPropSet: CustomNavLinkProps[] = [
 
 export const authFormPropSet: { [key: string]: FormProps } = {
   SIGNInFormProps: {
-    formType: 'signup',
     title: 'Sign Up to WanderLog',
     action: '/authorization',
     method: 'post',
@@ -51,13 +52,19 @@ export const authFormPropSet: { [key: string]: FormProps } = {
         name: 'password',
         required: true,
       },
+      // {
+      //   label: 'Confirm Password',
+      //   id: 'password',
+      //   type: 'password',
+      //   placeHolder: 'Confirm your password',
+      //   name: 'password',
+      //   required: true,
+      // },
       {
-        label: 'Confirm Password',
-        id: 'password',
-        type: 'password',
-        placeHolder: 'Confirm your password',
-        name: 'password',
-        required: true,
+        id: 'formType',
+        type: InputType.HIDDEN,
+        value: FormType.SIGNUP,
+        name: 'formType',
       },
     ],
     button: {
@@ -66,11 +73,8 @@ export const authFormPropSet: { [key: string]: FormProps } = {
         () => console.log('Sign Up button clicked');
       },
     },
-    redirect: '',
-    // redirect: '/places',
   },
   logInFormProps: {
-    formType: 'login',
     title: 'Log In to WanderLog',
     action: '/authorization',
     method: 'post',
@@ -91,6 +95,12 @@ export const authFormPropSet: { [key: string]: FormProps } = {
         name: 'password',
         required: true,
       },
+      {
+        id: 'formType',
+        type: InputType.HIDDEN,
+        value: FormType.LOGIN,
+        name: 'formType',
+      },
     ],
     button: {
       text: 'Log In',
@@ -98,7 +108,5 @@ export const authFormPropSet: { [key: string]: FormProps } = {
         () => console.log('Log In button clicked');
       },
     },
-    redirect: '',
-    // redirect: '/places',
   },
 };

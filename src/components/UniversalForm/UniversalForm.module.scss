@@ -6,27 +6,6 @@
   flex-direction: column;
   max-width: 400px;
 
-//   & input {
-//     width: 100%;
-//     box-sizing: border-box;
-//     color: variables.$basic-decore-color_marine;
-//     background-color: variables.$button-color_default_marine;
-//     @include mixins.font(variables.$main-font-family, variables.$tiny-font-size, variables.$main-font-weight, variables.$basic-decore-color_marine);
-//     margin-bottom: 10px;
-//     padding: 0px;
-//     font-size: 16px;
-//     border-radius: 5px;
-//     outline: none;
-//     transition: all 0.3s;
-//     &::placeholder {
-//       color: variables.$general-background-color_marine;
-//     }
-
-//     &:focus {
-//       border: 3px solid variables.$button-color_active_marine;
-//     }
-//   }
-
   &Title {
     margin-bottom: 40px;
     font-size: 20px;

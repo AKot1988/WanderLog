@@ -25,21 +25,21 @@ const createRoutesByRole = (userRole: any): RouteObject[] => {
 };
 
 const MyAppRouter = () => {
+  console.log(auth.currentUser);
   const role = auth.currentUser ? AUTH_USER_ROLE.AUTHORIZED : AUTH_USER_ROLE.GUEST;
+  // console.log('Initial role:', role);
   const [currentRole, setRole] = useState<any>(role);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      if (currentUser) {
-        setRole(AUTH_USER_ROLE.AUTHORIZED);
-      } else {
-        setRole(AUTH_USER_ROLE.GUEST);
-      }
+      currentUser ? setRole(AUTH_USER_ROLE.AUTHORIZED) : setRole(AUTH_USER_ROLE.GUEST);
+      // console.log('Auth state changed, current role:', currentRole);
     });
 
     return () => unsubscribe();
-  }, [auth]);
+  }, []);
 
   const appRoutes = createRoutesByRole(currentRole);
+  console.log('App routes:', appRoutes);
   const router = createBrowserRouter([
     {
       path: '/',

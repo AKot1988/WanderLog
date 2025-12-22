@@ -9,7 +9,7 @@ const UniversalForm: FC<FormProps> = ({ ...data }) => {
     <Form className={classes.form} method={data.method} action={data.action}>
       <p className={classes.formTitle}>{data.title}</p>
       {data.inputs.map((input) => (
-        <Input {...input} />
+        <Input {...input} key={input.id} />
       ))}
       <button className={classes.formButton} type="submit" onClick={data.button.clickHandler}>
         {data.button.text}

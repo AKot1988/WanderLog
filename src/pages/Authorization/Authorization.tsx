@@ -7,6 +7,7 @@ import { authFormPropSet, authNavLinkPropSet } from './helper';
 import { CustomNavLink, UniversalForm, UniversalModal } from '../../components';
 import classes from './Authorization.module.scss';
 import { redirect } from 'react-router-dom';
+import { red } from '@mui/material/colors';
 
 export const authorizationAction = async ({ request }: { request: Request }) => {
   const formData = await request.formData();
@@ -15,33 +16,28 @@ export const authorizationAction = async ({ request }: { request: Request }) => 
     password: formData.get('password'),
   };
 
-  let user = auth.currentUser;
-  console.log('Form Data:', Object.fromEntries(formData.entries()));
-  switch (formData.get('formType')) {
-    case 'login':
-      // Call log-in function
-      return await logInByEmailCredentials(newUserData.email as string, newUserData.password as string)
-        .then(() => {
-          user = auth.currentUser;
-          redirect('/wall');
-        })
-        .catch((error) => {
-          console.error('Error during sign-up:', error);
-          redirect('/authorization');
-        });
-    case 'signup':
-      await createUserEmailPassword({ email: newUserData.email as string, password: newUserData.password as string })
-        .then(() => {
-          user = auth.currentUser;
-          redirect('/wall');
-        })
-        .catch((error) => {
-          console.error('Error during sign-up:', error);
-          redirect('/authorization');
-        });
-    // Call sign-up function`
+  let user = auth.currentUser || undefined;
+
+  try {
+    switch (formData.get('formType')) {
+      case 'login': {
+        user = await logInByEmailCredentials(newUserData.email as string, newUserData.password as string);
+        console.log('Logged in user:', user);
+        return redirect('/wall');
+      }
+      case 'signup': {
+        user = await createUserEmailPassword({ email: newUserData.email as string, password: newUserData.password as string });
+        console.log('Logged in user:', user);
+        // await writeUserData(user?.uid as string, { email: newUserData.email });
+        return redirect('/wall');
+      }
+      default:
+        console.error('Unknown form type');
+    }
+    console.log(user);
+  } catch (error) {
+    return redirect('/authorization');
   }
-  return null;
 };
 
 const AuthorizationPage: FC<any> = () => {
@@ -56,12 +52,11 @@ const AuthorizationPage: FC<any> = () => {
   };
   let UPDATEDAuthFormPropSet = authFormPropSet;
   UPDATEDAuthFormPropSet.SIGNInFormProps.button.clickHandler = () => {
-    createUserEmailPassword;
+    authorizationAction;
   };
   UPDATEDAuthFormPropSet.logInFormProps.button.clickHandler = () => {
-    logInByEmailCredentials;
+    authorizationAction;
   };
-  // useEffect(() => {}, []);
 
   return (
     <>

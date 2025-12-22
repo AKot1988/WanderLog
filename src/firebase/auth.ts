@@ -21,6 +21,7 @@ onAuthStateChanged(auth, (user) => {
 });
 
 export const createUserEmailPassword = async ({ email, password }: UserCredentialsEmailProps) => {
+  console.log('Creating user with email:', email);
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
@@ -36,7 +37,6 @@ export const createUserEmailPassword = async ({ email, password }: UserCredentia
   }
 };
 
-// export const signInByGoogle = async () => {};
 const provider = new GoogleAuthProvider();
 provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 auth.languageCode = 'ukrainian';
@@ -49,38 +49,28 @@ export const signOutUser = async () => {
   }
 };
 
-export const googleSignIn = async (): any => {
+export const googleSignIn = async () => {
   try {
     const result = await signInWithPopup(auth, provider);
     const credential = GoogleAuthProvider.credentialFromResult(result);
-    // The signed-in user info.
     const token = credential?.accessToken;
-    // IdP data available using getAdditionalUserInfo(result)
     const user = result.user;
     return { user, token };
   } catch (error: any) {
-    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
     throw new Error(`Google sign-in error: ${errorMessage} (${errorCode})`);
   }
 };
 
 export const logInByEmailCredentials = async (email: string, password: string) => {
   try {
-    (userCredential: any) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-    };
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    return user;
   } catch (error: any) {
     const errorCode = error.code;
     const errorMessage = error.message;
+    throw new Error('Email log-in error: ' + errorMessage + errorCode);
   }
 };
-// export const signInWithEmailAndPassword(auth, email, password)
