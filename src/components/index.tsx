@@ -1,0 +1,8 @@
+export { default as Header } from "./Header/Header";
+export { default as Footer } from "./Footer/Footer";
+export { default as CustomNavLink } from "./CustomNavLink/CustomNavLink";
+export { default as UniversalForm } from './UniversalForm/UniversalForm';
+export { default as UniversalModal } from './UniversalModal/UniversalModal';
+export { default as AuthProvider } from './AuthProvider/AuthProvider';
+export { default as Input } from './Input/Input.tsx';
+// export { default as Loader } from "./Loader/Loader.tsx";

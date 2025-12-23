@@ -1,5 +1,6 @@
 import { db } from './firebase';
 import { UserData } from './types';
+import { auth } from './auth';
 import { doc, setDoc, getDoc, collection, serverTimestamp } from 'firebase/firestore';
 
 // const dbRef = ref(database);
@@ -16,6 +17,22 @@ export const writeUserData = async (data: UserData): Promise<void> => {
     birthdate: data.birthdate ?? null,
     updatedAt: serverTimestamp(),
   });
+};
+
+export const getUserData = async function () {
+  const UID = auth.currentUser?.uid;
+  if (UID === null || UID === undefined) {
+    return null;
+  }
+  const docRef = doc(usersCollectionRef, UID);
+  const docSnap = await getDoc(docRef);
+  let data = null;
+  if (!docSnap.data()) {
+    data = null;
+  } else {
+    data = docSnap.data();
+  }
+  return data;
 };
 
 export const readUserData = async ({ userId }: any) => {

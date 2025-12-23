@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { Form } from "react-router-dom";
 import type { FormProps } from "./types.tsx";
-import { Input } from "../index.tsx";
+import { Input } from '../';
 import classes from "./UniversalForm.module.scss";
 
 const UniversalForm: FC<FormProps> = ({ ...data }) => {

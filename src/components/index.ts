@@ -5,6 +5,3 @@ export { default as CustomNavLink } from './CustomNavLink/CustomNavLink';
 export { default as UniversalModal } from './UniversalModal/UniversalModal';
 export { default as UniversalForm } from './UniversalForm/UniversalForm';
 export { default as AuthProvider } from './AuthProvider/AuthProvider';
-
-
-// export { default as Loader } from "./Loader/Loader.tsx";

@@ -15,11 +15,14 @@ export const useAuthState = () => {
         setRole('guest');
         setCurrentUser(null);
         setLoading(false);
+        console.log(role);
+      } else {
+        setCurrentUser(user);
+        const isAdmin = await doesUserHaveAdminRole(user?.uid as string);
+        setRole(isAdmin ? 'admin' : 'authorized');
+        setLoading(false);
+        console.log(role);
       }
-      setCurrentUser(user);
-      const isAdmin = await doesUserHaveAdminRole(user.uid as string);
-      setRole(isAdmin ? 'admin' : 'authorized');
-      setLoading(false);
     });
     return unsubscribe;
   }, []);

@@ -7,7 +7,6 @@ import { authFormPropSet, authNavLinkPropSet } from './helper';
 import { CustomNavLink, UniversalForm, UniversalModal } from '../../components';
 import classes from './Authorization.module.scss';
 import { redirect } from 'react-router-dom';
-import { red } from '@mui/material/colors';
 
 export const authorizationAction = async ({ request }: { request: Request }) => {
   const formData = await request.formData();
