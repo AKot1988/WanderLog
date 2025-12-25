@@ -3,16 +3,16 @@ import { Header, Footer } from '../../components';
 import { wonderHeaderProps } from '../../components/Header/helper';
 import type { HeaderProps } from '../../components/Header/types';
 import { auth } from '../../firebase/auth';
-import { readUserData } from '../../firebase/api';
+import { readUserData, getUserData } from '../../firebase/api';
 import { AuthUserRole } from '../../firebase/types';
 import { AuthContext } from '../../components/AuthProvider/AuthProvider';
 import { useEffect, useState, useContext } from 'react';
 import classes from './Layout.module.scss';
 
-// export const LayoutLoaderFunc = async (userID: string): Promise<any> => {
-//   const userData = await readUserData(userID);
-//   return userData;
-// };
+export const LayoutLoaderFunc = async (): Promise<any> => {
+  const userData = await getUserData();
+  return userData;
+};
 
 const Layout = () => {
   const userData = useLoaderData();
