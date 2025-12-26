@@ -9,27 +9,27 @@ export const usersCollectionRef = collection(db, 'usersExtendedData');
 export const placesCollectionRef = collection(db, 'places');
 
 // пишемо дані користувача у базу даних, саме в розділ "users" в юзерІД. Автоматом створюється новий документ і колекція, якщо їх нема (якщо немає)
-// export const writeUserData = async (data: UserData): Promise<void> => {
-//   await setDoc(doc(usersCollectionRef, auth.currentUser?.uid), {
-//     ...data,
-//     updatedAt: serverTimestamp(),
-//   });
-//   console.log('newUser added/user Updated to/in userCollection');
-// };
+export const writeUserData = async (data: UserData): Promise<void> => {
+  await setDoc(doc(usersCollectionRef, auth.currentUser?.uid), {
+    ...data,
+    updatedAt: serverTimestamp(),
+  });
+  console.log('newUser added/user Updated to/in userCollection');
+};
 
-// export const writeUserPlacesData = async (data: []): Promise<void> => {
-//   let placesData: []
-//   await setDoc(doc(placesCollectionRef, auth.currentUser?.uid), {
-//     if(data: any) {
-//       return placesData = data
-//     }, else {
-//       placesData =[
-//         { places: 'user dosent have any places yet' }
-//       ],
-//       return placesData
-//     }
-//   })
-// };
+export const writeUserPlacesData = async (data: []): Promise<void> => {
+  let placesData: [];
+  // await setDoc(doc(placesCollectionRef, auth.currentUser?.uid), {
+  //   if(data: any) {
+  //     return placesData = data
+  //   }, else {
+  //     placesData =[
+  //       { places: 'user dosent have any places yet' }
+  //     ],
+  //     return placesData
+  //   }
+  // })
+};
 
 export const getUserData = async function () {
   const UID = auth.currentUser?.uid;

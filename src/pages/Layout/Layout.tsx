@@ -1,10 +1,8 @@
-import { Outlet, useLoaderData, useRouteLoaderData } from 'react-router-dom';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import { Header, Footer } from '../../components';
 import { wonderHeaderProps } from '../../components/Header/helper';
 import type { HeaderProps } from '../../components/Header/types';
-import { auth } from '../../firebase/auth';
 import { readUserData, getUserData } from '../../firebase/api';
-import { AuthUserRole } from '../../firebase/types';
 import { AuthContext } from '../../components/AuthProvider/AuthProvider';
 import { useEffect, useState, useContext } from 'react';
 import classes from './Layout.module.scss';

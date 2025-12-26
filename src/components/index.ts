@@ -1,3 +1,4 @@
+import { defaultSVGs } from './../assets/SVGs';
 export { default as Input } from './Input/Input';
 export { default as Header } from './Header/Header';
 export { default as Footer } from './Footer/Footer';
@@ -5,3 +6,5 @@ export { default as CustomNavLink } from './CustomNavLink/CustomNavLink';
 export { default as UniversalModal } from './UniversalModal/UniversalModal';
 export { default as UniversalForm } from './UniversalForm/UniversalForm';
 export { default as AuthProvider } from './AuthProvider/AuthProvider';
+export { default as ErrorElementGPT } from './ErrorElementGPT/ErrorElementGPT';
+export { default as TemporaryMessage } from './TemporaryMessage/TemporaryMessage';

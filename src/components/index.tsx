@@ -5,4 +5,6 @@ export { default as UniversalForm } from './UniversalForm/UniversalForm';
 export { default as UniversalModal } from './UniversalModal/UniversalModal';
 export { default as AuthProvider } from './AuthProvider/AuthProvider';
 export { default as Input } from './Input/Input.tsx';
+export { default as ErrorElementGPT } from './ErrorElementGPT/ErrorElementGPT';
+export { default as TemporaryMessage } from './TemporaryMessage/TemporaryMessage';
 // export { default as Loader } from "./Loader/Loader.tsx";
